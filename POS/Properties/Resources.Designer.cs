@@ -59,5 +59,14 @@ namespace POS.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blablabla.
+        /// </summary>
+        internal static string Cookie {
+            get {
+                return ResourceManager.GetString("Cookie", resourceCulture);
+            }
+        }
     }
 }

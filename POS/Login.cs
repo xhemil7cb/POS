@@ -15,22 +15,34 @@ namespace POS
         public Login()
         {
             InitializeComponent();
+
+
+
+            // If i have a vaild cookie I wanna skip typing username and password
+            // Vazdo ktu Bone if bool true me thirr Formen Main.cs  <<<<<--------------------
+            Task.Run(async () => await Networking.CheckCookieValidityAsync(Properties.Resources.Cookie));
+
+            
+
         }
+
+
 
         private async void button1_Click(object sender, EventArgs e)
         {
             // On Click Check for Username and Passsword then send to server
 
-
-            await Call_Networking_LoginAsync();
-        }
-
-        private async Task Call_Networking_LoginAsync()
-        {
             string username = textBox1.Text;
             string password = textBox2.Text;
+
+
+            
+
             await Networking.Login(username, password);
+
         }
+
+        
         
     }
 }
