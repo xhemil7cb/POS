@@ -16,15 +16,35 @@ namespace POS
         {
             InitializeComponent();
 
-
+            Shown += Login_Shown;
 
             // If i have a vaild cookie I wanna skip typing username and password
             // Vazdo ktu Bone if bool true me thirr Formen Main.cs  <<<<<--------------------
-            Task.Run(async () => await Networking.CheckCookieValidityAsync(Properties.Resources.Cookie));
+            
 
             
 
         }
+
+        private void Login_Shown(object sender, EventArgs e)
+        {
+            Task<bool> task = Task.Run(async () => await Networking.CheckCookieValidityAsync(Properties.Resources.Cookie));
+            bool b = task.Result;
+
+
+            if (b)
+            {
+                Form main = new Main();
+                main.Show();
+                Hide();  // Hides LoginForm
+            }
+            else
+            {
+                MessageBox.Show("Boolean b value:" + b);
+            }
+
+        }
+
 
 
 

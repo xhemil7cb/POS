@@ -57,7 +57,8 @@ namespace POS
             string content = await response.Content.ReadAsStringAsync();
 
             JsonLoginResponse jsonLoginResponse = JsonConvert.DeserializeObject<JsonLoginResponse>(content);
-            MessageBox.Show(jsonLoginResponse.Cookie);
+            
+            // MessageBox.Show(jsonLoginResponse.Cookie);
 
             
 
@@ -101,7 +102,8 @@ namespace POS
             string content = await response.Content.ReadAsStringAsync();
  
             CheckLoginCookieResponse jsonLoginCookieResponse = JsonConvert.DeserializeObject<CheckLoginCookieResponse>(content);
-            MessageBox.Show(jsonLoginCookieResponse.Valid.ToString());
+            
+            // MessageBox.Show(jsonLoginCookieResponse.Valid.ToString());
 
             return jsonLoginCookieResponse.Valid;
         }
